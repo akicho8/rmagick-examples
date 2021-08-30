@@ -12,6 +12,8 @@ task :test do
   end
 end
 
-# task :clean do
-#   FileUtils.rm_rf("_*", verbose: true, noop: true)
-# end
+task :clean do
+  Dir.chdir(__dir__) do
+    FileUtils.rm_rf(Pathname.glob("_*"), verbose: true)
+  end
+end
