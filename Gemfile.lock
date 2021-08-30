@@ -1,0 +1,71 @@
+GIT
+  remote: https://github.com/akicho8/bioshogi.git
+  revision: 5f4eecb87ba95503efbcd0aa62c43b77312fcecd
+  specs:
+    bioshogi (0.0.1)
+      actionview
+      activesupport
+      color
+      memory_record
+      table_format
+      tree_support
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    actionview (6.1.4.1)
+      activesupport (= 6.1.4.1)
+      builder (~> 3.1)
+      erubi (~> 1.4)
+      rails-dom-testing (~> 2.0)
+      rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    activesupport (6.1.4.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      tzinfo (~> 2.0)
+      zeitwerk (~> 2.3)
+    builder (3.2.4)
+    color (1.8)
+    concurrent-ruby (1.1.9)
+    crass (1.0.6)
+    erubi (1.10.0)
+    i18n (1.8.10)
+      concurrent-ruby (~> 1.0)
+    loofah (2.12.0)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.5.9)
+    memory_record (0.0.18)
+      activesupport
+    minitest (5.14.4)
+    nokogiri (1.12.4-x86_64-darwin)
+      racc (~> 1.4)
+    racc (1.5.2)
+    rails-dom-testing (2.0.3)
+      activesupport (>= 4.2.0)
+      nokogiri (>= 1.6)
+    rails-html-sanitizer (1.4.2)
+      loofah (~> 2.3)
+    rmagick (4.2.2)
+    table_format (0.0.8)
+      activesupport
+    tree_support (0.1.9)
+      activesupport
+    tzinfo (2.0.4)
+      concurrent-ruby (~> 1.0)
+    zeitwerk (2.4.2)
+
+PLATFORMS
+  x86_64-darwin-17
+
+DEPENDENCIES
+  bioshogi!
+  memory_record
+  rmagick
+  table_format
+
+RUBY VERSION
+   ruby 2.6.5p114
+
+BUNDLED WITH
+   2.2.26
