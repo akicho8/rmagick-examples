@@ -7,7 +7,7 @@ char_w = 100
 
 gc = Magick::Draw.new
 gc.annotate(canvas, char_w - 1, char_w - 1, 0, 0, "龍") do |e|
-  e.font      = "/System/Library/Fonts/ヒラギノ明朝 ProN.ttc"
+  e.font      = "RictyDiminished-Bold.ttf"
   e.fill      = "black"
   e.pointsize = char_w / 2
   e.gravity   = Magick::CenterGravity

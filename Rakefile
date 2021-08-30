@@ -1,6 +1,7 @@
 require "pathname"
 
 task :default => :test
+task :build => [:clean, :renum, :test]
 
 task :test do
   Pathname.glob("0*") do |e|
@@ -17,3 +18,8 @@ task :clean do
     FileUtils.rm_rf(Pathname.glob("_*"), verbose: true)
   end
 end
+
+task :renum do
+  system "saferenum . -x"
+end
+
