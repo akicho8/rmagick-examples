@@ -7,12 +7,12 @@ class App
   end
 
   def run
-    canvas = Magick::Image.new(*params[:rect]) { |e| e.background_color = params[:base_color] }
+    canvas = Image.new(*params[:rect]) { |e| e.background_color = params[:base_color] }
     w, h = params.values_at(:w, :h)
     (canvas.rows.fdiv(h)).ceil.times do |y|
       (canvas.columns.fdiv(w)).ceil.times do |x|
         if (x + y).even?
-          g = Magick::Draw.new
+          g = Draw.new
           g.fill(params[:accent_color])
           g.rectangle(x * w, y * h, x * w + w - 1, y * h + h - 1)
           g.draw(canvas)

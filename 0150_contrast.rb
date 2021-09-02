@@ -1,5 +1,5 @@
 require "./setup"
-image = Magick::Image.read("netscape:").first
+image = Image.read("netscape:").first
 d image
 d image.contrast(false)
 d image.contrast(true).contrast(true)

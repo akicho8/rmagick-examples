@@ -23,12 +23,12 @@ class App
     end
 
     def draw
-      gc = Magick::Draw.new
+      gc = Draw.new
       gc.annotate(base.canvas, base.char_w - 1, base.char_h - 1, x * base.char_w, y * base.char_h, char) do |e|
         e.font      = base.font_file.to_s
         e.fill      = base.main_color
         e.pointsize = base.char_w
-        e.gravity   = Magick::CenterGravity
+        e.gravity   = CenterGravity
       end
     end
 
@@ -62,7 +62,7 @@ class App
   end
 
   def run
-    @canvas = Magick::Image.new(image_w, image_h) { |e| e.background_color = "black" }
+    @canvas = Image.new(image_w, image_h) { |e| e.background_color = "black" }
 
     @points = xn.times.collect { |x| Ship.new(self, x) }
 
@@ -71,7 +71,7 @@ class App
         point.update
         point.draw
       end
-      gc = Magick::Draw.new
+      gc = Draw.new
       gc.fill = "rgba(0,0,0,#{@dark_level})"
       gc.rectangle(0, 0, @canvas.columns - 1, @canvas.rows - 1)
       gc.draw(@canvas)
@@ -79,10 +79,10 @@ class App
 
     if true
       effect = @canvas.copy
-      effect.colorspace = Magick::GRAYColorspace
+      effect.colorspace = GRAYColorspace
       effect = effect.spread(6).blur_image(0, 2)
       effect.write("_matrix_effect.png")
-      @canvas = @canvas.composite(effect, 0, 0, Magick::LinearDodgeCompositeOp)
+      @canvas = @canvas.composite(effect, 0, 0, LinearDodgeCompositeOp)
     end
 
     @canvas.write(output)

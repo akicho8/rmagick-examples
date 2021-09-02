@@ -1,12 +1,10 @@
 require "./setup"
-image = Magick::Image.read("logo:").first
-
-tp Magick::NoiseType.values
-
-d image.add_noise(Magick::ImpulseNoise)
-
-Magick::NoiseType.values { |e| d image.add_noise(e) }
-
+tp NoiseType.values
+image = Image.read("logo:").first
+d image.add_noise(ImpulseNoise)
+NoiseType.values do |e|
+  d image.add_noise(e)
+end
 # >> |-----------------------------|
 # >> | UniformNoise                |
 # >> | GaussianNoise               |

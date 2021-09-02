@@ -1,10 +1,10 @@
 require "./setup"
 
 file = Pathname("images/matrix_1024x768.png")
-image1 = Magick::Image.read(file).first
+image1 = Image.read(file).first
 
-image2 = Magick::Image.read(file).first
-image2.colorspace = Magick::GRAYColorspace
+image2 = Image.read(file).first
+image2.colorspace = GRAYColorspace
 image2 = image2.spread(4).blur_image(0, 2)
 
 tp CompositeOperator.values
