@@ -4,6 +4,8 @@ Bundler.require(:default)
 
 require "rmagick/version"
 
+include Magick
+
 require "pathname"
 require "fileutils"
 require "kconv"
@@ -34,5 +36,33 @@ class Rect < Vector
 
   def h
     self[1]
+  end
+end
+
+Kernel.class_eval do
+  private
+
+  def d(image)
+    file = Pathname("_tmp/#{Time.now.strftime("%Y%m%d%H%M%S")}_#{Pathname($0).basename('.*')}_#{SecureRandom.hex}.png").expand_path
+    FileUtils.makedirs(file.dirname)
+    image.write(file)
+    `open #{file}`
+  end
+
+  def o(image, name)
+    file = Pathname("_#{name}.png")
+    FileUtils.makedirs(file.dirname)
+    image.write(file)
+    puts e
+  end
+end
+
+Image.class_eval do
+  def display
+    d(self)
+  end
+
+  def to_file(*args)
+    o(self, *args)
   end
 end

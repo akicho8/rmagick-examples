@@ -55,7 +55,7 @@ class App
 
     @dark_level = 0.16
 
-    @font_file = Pathname("RictyDiminished-Bold.ttf").expand_path
+    @font_file = Pathname("fonts/RictyDiminished-Bold.ttf").expand_path
     @main_color = "rgb(0,255,0)"
 
     @char_list = Bioshogi::TacticInfo.all_elements.collect(&:name).shuffle.join.chars.reverse

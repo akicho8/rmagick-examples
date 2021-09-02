@@ -17,5 +17,4 @@ gc.fill = "rgba(0,0,0,0.5)"
 gc.rectangle(0, 0, char_w - 1, char_w - 1)
 gc.draw(canvas)
 
-canvas.write("_annotate.png")
-`open _annotate.png`
+d canvas

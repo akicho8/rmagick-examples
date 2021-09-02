@@ -8,5 +8,4 @@ gc.fill("rgba(0,0,0,0.3)")
 gc.rectangle(400, 400, 400+200, 400+100)
 gc.draw(canvas)
 
-canvas.write("_rectangle.png")
-`open _rectangle.png`
+d canvas
