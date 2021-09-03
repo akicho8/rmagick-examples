@@ -4,6 +4,7 @@ task :default => :test
 task :build => [:clean, :renum, :test]
 
 task :test do
+  ENV["SILENT"] = "1"
   Pathname.glob("0*") do |e|
     puts e
     system "ruby #{e}"
