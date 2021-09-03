@@ -42,8 +42,13 @@ end
 Kernel.class_eval do
   private
 
-  def d(image)
-    file = Pathname("_tmp/#{Time.now.strftime("%Y%m%d%H%M%S")}_#{Pathname($0).basename('.*')}_#{SecureRandom.hex}.png").expand_path
+  # p メソッドのような感覚で使う
+  def d(image, options = {})
+    if ENV["SILENT"]
+      return
+    end
+    name = options[:name] || "#{Time.now.strftime("%Y%m%d%H%M%S")}_#{Pathname($0).basename('.*')}_#{SecureRandom.hex}"
+    file = Pathname("_tmp/#{name}.png").expand_path
     FileUtils.makedirs(file.dirname)
     image.write(file)
     `open #{file}`
@@ -53,7 +58,7 @@ Kernel.class_eval do
     file = Pathname("_#{name}.png")
     FileUtils.makedirs(file.dirname)
     image.write(file)
-    puts e
+    puts file
   end
 end
 

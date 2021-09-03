@@ -16,6 +16,7 @@ end
 task :clean do
   Dir.chdir(__dir__) do
     FileUtils.rm_rf(Pathname.glob("_*"), verbose: true)
+    FileUtils.rm_rf(Pathname.glob("xmp*"), verbose: true)
   end
 end
 
