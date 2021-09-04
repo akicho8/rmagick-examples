@@ -54,7 +54,7 @@ Kernel.class_eval do
     `open #{file}`
   end
 
-  def o(image, name)
+  def o(image, name = SecureRandom.hex)
     file = Pathname("_#{name}.png")
     FileUtils.makedirs(file.dirname)
     image.write(file)
