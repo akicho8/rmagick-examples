@@ -16,6 +16,7 @@ Magick_version # => "ImageMagick 7.1.0-5 Q16 x86_64 2021-08-22 https://imagemagi
 
 image1 = Image.read("logo:").first.transparent("white")
 shadow1 = image1.shadow(-5, -5, 4, "50%") # -shadow 50x4-5-5
+shadow1.write("shadow1.png")
 image1 = shadow1.composite(image1, 0, 0, OverCompositeOp)
 canvas = Image.new(image1.columns, image1.rows) { |e| e.background_color = "white" }
 canvas.composite!(image1, 0, 0, OverCompositeOp)
