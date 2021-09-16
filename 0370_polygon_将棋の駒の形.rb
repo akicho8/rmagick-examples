@@ -44,12 +44,8 @@ gc.draw(canvas)
 gc = Draw.new
 gc.stroke_width(3)
 gc.stroke("#000088")
-gc.fill("#eeeeee")
+gc.fill_pattern = Image.read("images/pakutexture06210140.png").first
 gc.polygon(*points.flatten)
 gc.draw(canvas)
-
-
-
-
 
 d canvas

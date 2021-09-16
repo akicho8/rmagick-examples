@@ -11,6 +11,8 @@ require "fileutils"
 require "kconv"
 require "matrix"
 
+KOMAIRO = "hsl(43,100%,81%)"
+
 class V < Vector
   def self.one
     self[1, 1]
@@ -43,11 +45,15 @@ Kernel.class_eval do
   private
 
   # p メソッドのような感覚で使う
-  def d(image, options = {})
+  # name を指定すると preview アプリで見たときタイトルに出てわかりやすい
+  def d(image, name = nil)
     if ENV["SILENT"]
       return image
     end
-    name = options[:name] || "#{Time.now.strftime("%Y%m%d%H%M%S")}_#{Pathname($0).basename('.*')}_#{SecureRandom.hex}"
+    if name.to_s.include?("=>")
+      raise ArgumentError, name.inspect
+    end
+    name ||= "#{Time.now.strftime("%Y%m%d%H%M%S")}_#{Pathname($0).basename('.*')}_#{SecureRandom.hex}"
     file = Pathname("_tmp/#{name}.png").expand_path
     FileUtils.makedirs(file.dirname)
     image.write(file)

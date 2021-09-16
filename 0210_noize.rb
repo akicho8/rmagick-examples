@@ -3,7 +3,7 @@ tp NoiseType.values
 image = Image.read("logo:").first
 d image.add_noise(ImpulseNoise)
 NoiseType.values do |e|
-  d image.add_noise(e)
+  d image.add_noise(e), e
 end
 # >> |-----------------------------|
 # >> | UniformNoise                |

@@ -5,7 +5,7 @@ Image.read("rose:").first.colorspace # => SRGBColorspace=23
 ColorspaceType.values.each do |e|
   image = Image.read("logo:").first
   image.colorspace = e
-  d image, name: e
+  d image, e
 end
 
 tp ColorspaceType.values
