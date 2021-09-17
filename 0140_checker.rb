@@ -35,12 +35,10 @@ if true
     { name: "dark",  rect: Rect[1920, 1080], base_color: "#333", accent_color: "rgba(255,255,255,0.05)", w: 16, h: 16 },
   ].collect.with_index do |params, i|
     App.new(params.merge(output: "_checker/checker_#{params[:name]}.png")).run
-    App.new(params.merge(output: "../bioshogi/lib/bioshogi/assets/images/checker_#{params[:name]}.png")).run
+    App.new(params.merge(output: "../bioshogi/lib/bioshogi/assets/images/background/checker_#{params[:name]}.png")).run
   end
   `open _checker`
 end
-# App.new(image_w: 1024, image_h:  768, output: "../bioshogi/lib/bioshogi/assets/images/matrix_1024x768.png").run
-# App.new(image_w: 1600, image_h: 1200, output: "../bioshogi/lib/bioshogi/assets/images/matrix_1600x1200.png").run
 
 # >> |---------------|
 # >> | file          |

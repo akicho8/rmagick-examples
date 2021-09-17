@@ -112,5 +112,5 @@ end
 
 App.new(image_w: 1280, image_h:  720, output: "_matrix_1280x720.png").run
 App.new(image_w: 1920, image_h: 1080, output: "_matrix_1920x1080.png").run
-App.new(image_w: 1280, image_h:  720, output: "../bioshogi/lib/bioshogi/assets/images/matrix_1280x720.png").run
-App.new(image_w: 1920, image_h: 1080, output: "../bioshogi/lib/bioshogi/assets/images/matrix_1920x1080.png").run
+App.new(image_w: 1280, image_h:  720, output: "../bioshogi/lib/bioshogi/assets/images/background/matrix_1280x720.png").run
+App.new(image_w: 1920, image_h: 1080, output: "../bioshogi/lib/bioshogi/assets/images/background/matrix_1920x1080.png").run
