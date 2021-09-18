@@ -4,7 +4,7 @@ def fn(index)
   "RGB24:../bioshogi/lib/bioshogi/assets/images/background/gradiention#{index}.png"
 end
 
-COUNT = 4
+COUNT = 6
 COUNT.times do |i|
   c = Color::HSL.from_fraction(1.0.fdiv(COUNT) * i, 1.0, 0.7)
   c1 = c.dup.tap { |e| e.hue += 0      }
