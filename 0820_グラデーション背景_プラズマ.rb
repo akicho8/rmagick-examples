@@ -11,6 +11,7 @@ COUNT.times do |i|
   c2 = c.dup.tap { |e| e.luminosity    }
   layer = Image.read("plasma:#{c1.html}-#{c2.html}") { |e| e.size = "1280x720" }.first
   layer = layer.blur_image(0, 50)
-  d layer
+  # layer = layer.swirl(180*2)
+  # layer = layer.wave(25/2, 150)
   layer.write(fn(i.next))
 end

@@ -13,6 +13,8 @@ require "matrix"
 
 KOMAIRO = "hsl(43,100%,81%)"
 
+PAKUTASO1 = "images/IS107112702_TP_V.png"
+
 class V < Vector
   def self.one
     self[1, 1]
