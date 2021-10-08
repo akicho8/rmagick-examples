@@ -81,11 +81,11 @@ class App
       effect = @canvas.copy
       effect.colorspace = GRAYColorspace
       effect = effect.spread(6).blur_image(0, 2)
-      effect.write("_matrix_effect.png")
+      effect.write("PNG24:_matrix_effect.png")
       @canvas = @canvas.composite(effect, 0, 0, LinearDodgeCompositeOp)
     end
 
-    @canvas.write(output)
+    @canvas.write("PNG24:#{output}")
     `open #{output}`
   end
 
@@ -110,7 +110,4 @@ class App
   end
 end
 
-App.new(image_w: 1280, image_h:  720, output: "_matrix_1280x720.png").run
-App.new(image_w: 1920, image_h: 1080, output: "_matrix_1920x1080.png").run
-App.new(image_w: 1280, image_h:  720, output: "../bioshogi/lib/bioshogi/assets/images/background/matrix_1280x720.png").run
 App.new(image_w: 1920, image_h: 1080, output: "../bioshogi/lib/bioshogi/assets/images/background/matrix_1920x1080.png").run

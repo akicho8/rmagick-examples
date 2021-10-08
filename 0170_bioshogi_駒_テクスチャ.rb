@@ -13,7 +13,6 @@ p layer.extent(layer.columns * 0.5, layer.rows * 0.5, layer.columns*0.25, layer.
 p layer.crop(layer.columns*0.25, layer.rows*0.25, layer.columns*0.5, layer.rows*0.5, true) # 最後の true が +repage 相当でオフセットを取って +0+0 にする
 exit
 
-
 d layer.extent(layer.columns * 0.5, layer.rows * 0.5, layer.columns*0.25, layer.rows*0.25)
 layer = layer.crop(layer.columns*0.25, layer.rows*0.25, layer.columns*0.5, layer.rows*0.5, true) # 最後の true が +repage 相当でオフセットを取って +0+0 にする
 d layer
