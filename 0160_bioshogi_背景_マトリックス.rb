@@ -98,11 +98,11 @@ class App
   end
 
   def image_w
-    params[:image_w] || 1024
+    params[:image_w] || 1920
   end
 
   def image_h
-    params[:image_h] || 720
+    params[:image_h] || 1080
   end
 
   def output
@@ -110,4 +110,4 @@ class App
   end
 end
 
-App.new(image_w: 1920, image_h: 1080, output: "../bioshogi/lib/bioshogi/assets/images/background/matrix_1920x1080.png").run
+App.new(output: "../bioshogi/lib/bioshogi/assets/images/background/matrix.png").run
