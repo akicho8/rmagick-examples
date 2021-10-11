@@ -6,7 +6,7 @@ end
 
 COUNT = 4
 COUNT.times do |i|
-  c = Color::HSL.from_fraction(1.0.fdiv(COUNT) * i, 1.0, 0.7)
+  c = Color::HSL.from_fraction(1.0.fdiv(COUNT) * i, 0.8, 0.5)
   c1 = c.dup.tap { |e| e.hue += 0      }
   c2 = c.dup.tap { |e| e.hue += 30 * 4 }
   layer = Image.new(1920, 1080)
