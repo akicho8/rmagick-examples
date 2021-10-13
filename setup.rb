@@ -1,5 +1,5 @@
 require "bundler/setup"
-Dir.chdir(Bundler.root)
+# Dir.chdir(Bundler.root)
 Bundler.require(:default)
 
 require "rmagick/version"
@@ -8,8 +8,8 @@ include Magick
 
 require "pathname"
 require "fileutils"
-require "kconv"
 require "matrix"
+require "color"
 
 KOMAIRO = "hsl(43,100%,81%)"
 
