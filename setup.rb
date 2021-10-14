@@ -13,7 +13,20 @@ require "color"
 
 KOMAIRO = "hsl(43,100%,81%)"
 
-PAKUTASO1 = "images/IS107112702_TP_V.png"
+PAKUTASO1 = "#{__dir__}/images/IS107112702_TP_V.png"
+
+OFTEN_USE_OP = [
+  ScreenCompositeOp,      # 白くなる
+  PlusCompositeOp,        # かなり白くなる
+  LinearDodgeCompositeOp, # かなり白くなる
+  ColorDodgeCompositeOp,  # かなり白くなる
+  BlendCompositeOp,       # かなり白くなる
+  SoftLightCompositeOp,   # 濃くなる1
+  PegtopLightCompositeOp, # 濃くなる2
+  OverlayCompositeOp,     # 濃くなる3
+  ColorBurnCompositeOp,   # かなり濃くなる
+  DstAtopCompositeOp,     # 宇宙の惑星
+]
 
 class V < Vector
   def self.one
