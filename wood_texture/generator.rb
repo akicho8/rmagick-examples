@@ -65,15 +65,15 @@ class BoardGalleryInfo
   include MemoryRecord
 
   records = [0.4, 0.5, 0.6].flat_map do |s|
-    [43, 40, 37, 34].flat_map do |h|
+    [43, 41, 39, 37, 35].flat_map do |h|
       [
         nil,
         "slight",
         "cdark",
         "clight",
       ].flat_map do |mode|
-        [15, 50].flat_map do |stretch|
-          [0.15].flat_map do |ring|
+        [15, 50, 200].flat_map do |stretch|
+          [0.15, 1.0].flat_map do |ring|
             [0.520, 0.620].flat_map do |l|
               [50].flat_map do |cloud_blur|
                 { color1: [h, s, l], mode: mode, rg_level: 50, stretch: stretch, ring: ring, cloud_blur: cloud_blur }
@@ -84,13 +84,17 @@ class BoardGalleryInfo
       end
     end
   end
-  # records.count
+  # p records.count
   # pp records
   # exit
+
+  # records = [{ color1: [40, 0.5, 0.520], mode: nil, rg_level: 50, stretch: 50,  ring: 0.15, cloud_blur: 50 }]
+  # records = [{ color1: [34, 0.6, 0.520], mode: nil, rg_level: 50, stretch: 200, ring: 1.0, cloud_blur: 50 }]
+
   memory_record records
 
   def file_path
-    "../../shogi-extend/nuxt_side/static/x-texture/wood/%04d.png" % code.next
+    "../../shogi-extend/nuxt_side/static/material/board/%04d.png" % code.next
   end
 
   def color2
