@@ -1,4 +1,4 @@
-require "../setup"
+require "./setup"
 layer = Image.read("logo:").first
 layer.colorspace = GRAYColorspace
 d layer.emboss

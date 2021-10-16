@@ -1,11 +1,15 @@
 require "./setup"
 
 rows = [
-  { name: "light", rect: Rect[1920, 1080], base_color: "#fff", accent_color: "rgba(  0,  0,  0,0.06)", w: 24, h: 24 },
-  { name: "dark",  rect: Rect[1920, 1080], base_color: "#555", accent_color: "rgba(255,255,255,0.06)", w: 24, h: 24 },
+  { key: "grey_light", base_color: "hsl(  0,  0%,100%)", accent_color: "hsla(0,0%,  0%,0.06)", },
+  { key: "grey_dark",  base_color: "hsl(  0,  0%, 30%)", accent_color: "hsla(0,0%,100%,0.06)", },
+  { key: "red_dark",   base_color: "hsl(  0,100%, 30%)", accent_color: "hsla(0,0%,  0%,0.15)", },
+  { key: "blue_dark",  base_color: "hsl(240,100%, 30%)", accent_color: "hsla(0,0%,  0%,0.15)", },
 ].collect do |params|
-  layer = Image.new(*params[:rect]) { |e| e.background_color = params[:base_color] }
-  w, h = params.values_at(:w, :h)
+  rect = Rect[1920, 1080]
+  layer = Image.new(*rect) { |e| e.background_color = params[:base_color] }
+  w = 24
+  h = 24
   (layer.rows.fdiv(h)).ceil.times do |y|
     (layer.columns.fdiv(w)).ceil.times do |x|
       if (x + y).even?
@@ -17,5 +21,5 @@ rows = [
     end
   end
   d layer
-  layer.write("PNG24:../bioshogi/lib/bioshogi/assets/images/background/checker_#{params[:name]}.png")
+  layer.write("PNG24:../bioshogi/lib/bioshogi/assets/images/background/checker_#{params[:key]}.png")
 end

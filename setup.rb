@@ -11,7 +11,7 @@ require "fileutils"
 require "matrix"
 require "color"
 
-KOMAIRO = "hsl(43,100%,81%)"
+KOMAIRO = "hsl(43,100%,81%)"    # 共有将棋盤の駒の色
 
 PAKUTASO1 = "#{__dir__}/images/IS107112702_TP_V.png"
 

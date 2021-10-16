@@ -1,4 +1,4 @@
-require "../setup"
+require "./setup"
 layer = Image.read("logo:").first
 d layer.implode(0.1)
 d layer.implode(0.2)

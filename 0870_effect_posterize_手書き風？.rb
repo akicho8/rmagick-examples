@@ -1,4 +1,4 @@
-require "../setup"
+require "./setup"
 layer = Image.read("logo:").first
 d layer.posterize(4)
 d layer.posterize(4, true)
