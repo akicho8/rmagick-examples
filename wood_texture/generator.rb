@@ -33,7 +33,7 @@ class BoardInfo
   end
 
   records += [
-    { fn_suffix: "wars", color1: [39, 1.0, 0.68], mode: "cdark2", center_light_level: 50, ring: 0.15, stretch: 15, scale: 100, cloud_blur: 10, }
+    { fn_suffix: "_wars", color1: [39, 1.0, 0.68], mode: "cdark2", center_light_level: 50, ring: 0.15, stretch: 15, scale: 100, cloud_blur: 10, }
   ]
 
   # { color1: [43, 0.5, 0.550], mode: "clight", center_light_level: 50, },
@@ -68,11 +68,11 @@ class BoardInfo
   memory_record records
 
   def fn_suffix
-    super || ("%02d" % code.next)
+    super || code.next
   end
 
   def file_path
-    "../../bioshogi/lib/bioshogi/assets/images/board/groovy_board_texture_#{fn_suffix}.png"
+    "../../bioshogi/lib/bioshogi/assets/images/board/groovy_board_texture#{fn_suffix}.png"
   end
 
   def color2
