@@ -218,6 +218,74 @@ class BoardGalleryInfo
   end
 end
 
+# class PieceGalleryInfo
+#   include MemoryRecord
+# 
+#   records = [0.5].flat_map do |s|
+#     [43].flat_map do |h|
+#       [
+#         nil,
+#         # "slight",
+#         # "cdark",
+#         # "clight",
+#         # "cdark_only",
+#       ].flat_map do |mode|
+#         [
+#           # [1.0, 200, 100],      # 本物。模様の数が多い・模様ほぼなし縦に延す。縦に拡大するため綺麗だけどややボケ
+#           [0.15, 50, 5],        # 模様多い。模様の数が少ない・元の模様が残りがち。縦に拡大するため綺麗だけどややボケ
+#           # [0.15, 50, 10],       # ベニア板。模様の数が少ない・いい感じに縦線を作る。拡大しないため繊維が粗い
+#         ].flat_map do |ring, stretch, scale|
+#           [0.800].flat_map do |l|
+#             [5].flat_map do |cloud_blur|
+#               { color1: [h, s, l], mode: mode, center_light_level: 50, ring: ring, stretch: stretch, scale: scale, cloud_blur: cloud_blur,  }
+#             end
+#           end
+#         end
+#       end
+#     end
+#   end
+# 
+#   # p records.count
+#   # exit
+#   # pp records.take(4)
+#   # exit
+# 
+#   # records = [{ color1: [40, 0.5, 0.550], mode: nil, center_light_level: 50, ring: 0.15, stretch: 50,  cloud_blur: 50 }]
+#   # records = [{ color1: [40, 0.5, 0.550], mode: nil, center_light_level: 50, ring: 1.0, stretch: 200,  cloud_blur: 50 }]
+#   # records = [
+#   #   { color1: [34, 0.5, 0.550], mode: nil, center_light_level: 50, ring: 1.0, stretch: 200, cloud_blur: 50 },
+#   #   { color1: [34, 0.5, 0.560], mode: nil, center_light_level: 50, ring: 1.0, stretch: 200, cloud_blur: 50 },
+#   #   { color1: [34, 0.5, 0.550], mode: nil, center_light_level: 50, ring: 1.0, stretch: 200, cloud_blur: 50 },
+#   # ]
+# 
+#   memory_record records
+# 
+#   def file_path
+#     "../../shogi-extend/nuxt_side/static/material/piece/%04d.png" % code.next
+#   end
+# 
+#   def color2
+#     h, s, l = color1
+#     [h, s, l + 0.1]
+#   end
+# 
+#   def to_params
+#     {
+#       :width      => 128*4,
+#       :height     => 128*4,
+#       :angle      => 0.25,    # 角度 一周1.0
+#       :turbulence => 0,       # 揺れ
+#       :fibres     => 0,       # →繊維の数。0だと綺麗
+#       :ring       => ring,    # →細かくなる
+#       :scale      => scale,   # →拡大する(これ以上拡大するとぼける)
+#       :stretch    => stretch,      # →縦方向の伸張でこれ以上拡大するとほぼ縦線ばかりになる
+#       :color1     => color1,
+#       :color2     => color2,
+#       :cloud_blur => cloud_blur,
+#     }
+#   end
+# end
+
 class PieceInfo
   include MemoryRecord
   # 彩度下げるとスタンプ駒っぽくなる
@@ -244,7 +312,7 @@ class PieceInfo
     {
       :width      => 128,
       :height     => 128,
-      :angle      => 0,
+      :angle      => 0.25 / 2,
       :turbulence => 0,
       :fibres     => 0,
       :ring       => 0.15,
@@ -364,3 +432,4 @@ generator.run(BackgroundInfo)
 generator.run(BoardInfo)
 generator.run(PieceInfo)
 generator.run(BoardGalleryInfo)
+# generator.run(PieceGalleryInfo)
