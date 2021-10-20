@@ -25,6 +25,9 @@ rows = [
   color = Pixel.from_hsla(0, 0, 180).to_color(AllCompliance, false, 8, true)  # => "#FFFFFF"
   layer2 = Image.read("radial-gradient:#{color}-transparent") { |e| e.size = "#{layer1.columns}x#{layer1.rows}" }.first
   layer1 = layer1.modulate(0.4).composite(layer2, 0, 0, ColorDodgeCompositeOp)
+  # d layer1
+
+  layer1 = layer1.implode(-0.5) # 放射状に拡大
   d layer1
 
   layer1.write("PNG24:../bioshogi/lib/bioshogi/assets/images/background/checker_#{params[:key]}.png")
