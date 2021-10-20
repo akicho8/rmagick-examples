@@ -193,7 +193,7 @@ class BoardGalleryInfo
   memory_record records
 
   def file_path
-    "../../shogi-extend/nuxt_side/static/material/board/%04d.png" % code.next
+    "../../shogi-extend/nuxt_side/static/material/board/#{code.next}.png"
   end
 
   def color2
@@ -261,7 +261,7 @@ end
 #   memory_record records
 # 
 #   def file_path
-#     "../../shogi-extend/nuxt_side/static/material/piece/%04d.png" % code.next
+#     "../../shogi-extend/nuxt_side/static/material/piece/#{code.next}.png"
 #   end
 # 
 #   def color2
