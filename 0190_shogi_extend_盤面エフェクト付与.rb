@@ -24,6 +24,7 @@ layer3 = Image.read("plasma:black-black") { |e| e.size = "#{layer1.columns}x#{la
 # layer3 = Image.read("plasma:fractal") { |e| e.size = "#{layer1.columns}x#{layer1.rows}" }.first
 layer3.colorspace = GRAYColorspace
 layer3 = layer3.blur_image(0, 50)
+# d layer3.unsharp_mask(0, 1.0, 1.0, 0.05)
 d layer3
 
 # d layer1.composite(layer3, 0, 0, SoftLightCompositeOp) # 雲で濃くする
