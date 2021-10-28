@@ -4,6 +4,13 @@ layer1 = Image.new(800, 800) { |e| e.background_color = "white" }
 
 f = -> (x, y, w, h, r, pointsize, str) {
   gc = Draw.new
+  gc.fill("rgba(0,0,0,0.3)")
+  from = [x + w/2, y + h/2]
+  to   = [x + w/2 + r, y + h/2]
+  gc.circle(*from, *to)
+  gc.draw(layer1)
+
+  gc = Draw.new
   gc.annotate(layer1, w, h, x, y, str) do |e|
     e.font      = "fonts/RictyDiminished-Bold.ttf"
     e.fill      = "hsla(120,50%,50%,0.5)"
@@ -12,12 +19,6 @@ f = -> (x, y, w, h, r, pointsize, str) {
     # e.interword_spacing = 0
     e.gravity   = CenterGravity
   end
-  gc = Draw.new
-  gc.fill("rgba(0,0,0,0.3)")
-  from = [x + w/2, y + h/2]
-  to   = [x + w/2 + r, y + h/2]
-  gc.circle(*from, *to)
-  gc.draw(layer1)
 }
 
 f.(100,   0, 32, 32, 12, 10, "4") # 小さいとずれて見えるが計算は正しい
