@@ -26,4 +26,4 @@ gc.annotate(layer2, w, h, x, y, str) do |e|
   e.gravity   = CenterGravity
 end
 
-d layer1.composite(layer2, NorthGravity, OverCompositeOp)
+d layer1.composite(layer2, NorthWestGravity, OverCompositeOp)
