@@ -33,7 +33,7 @@ class BoardInfo
   end
 
   records += [
-    { fn_suffix: "_wars", color1: [39, 1.0, 0.68], mode: "cdark2", center_light_level: 50, ring: 0.15, stretch: 15, scale: 100, cloud_blur: 10, }
+    { fn_suffix: "_wars", color1: [45, 0.85, 0.65], mode: "cdark2", center_light_level: 50, ring: 0.15, stretch: 15, scale: 100, cloud_blur: 10, }
   ]
 
   # { color1: [43, 0.5, 0.550], mode: "clight", center_light_level: 50, },
@@ -428,8 +428,8 @@ end
 
 ENV["SILENT"] = "true"
 generator = Generator.new
-generator.run(BackgroundInfo)
+# generator.run(BackgroundInfo)
 generator.run(BoardInfo)
-generator.run(PieceInfo)
-generator.run(BoardGalleryInfo)
+# generator.run(PieceInfo)
+# generator.run(BoardGalleryInfo)
 # generator.run(PieceGalleryInfo)

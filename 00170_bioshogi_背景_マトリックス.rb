@@ -133,7 +133,7 @@ class App
   end
 
   def seed
-    params[:seed]
+    params[:seed] || 0
   end
 
   def char_list
