@@ -27,10 +27,10 @@ rows = [
   layer1 = layer1.modulate(0.4).composite(layer2, 0, 0, ColorDodgeCompositeOp)
   # d layer1
 
-  if false
-    layer1 = layer1.implode(-0.5) # 放射状に拡大
-    d layer1
-  end
+  # if false
+  #   layer1 = layer1.implode(-0.5) # 放射状に拡大
+  # end
+  d layer1
 
   layer1.write("PNG24:../bioshogi/lib/bioshogi/assets/images/background/checker_#{params[:key]}.png")
 end
