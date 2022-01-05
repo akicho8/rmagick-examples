@@ -1,0 +1,2 @@
+#!/bin/sh
+java -classpath ~/src/rmagick-examples/filter/Filters/dist/Filters.jar ~/src/rmagick-examples/filter/FBM.java $*
