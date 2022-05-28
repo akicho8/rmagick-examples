@@ -154,8 +154,16 @@ end
 class BoardGalleryInfo
   include MemoryRecord
 
-  records = [0.5, 0.6, 0.4, 1.0].flat_map do |s|
-    [45, 43, 41, 39, 37].flat_map do |h|
+  # hsl(36.23,75.36%,58.63%)
+
+  # H = [45, 43, 41, 39, 37]
+  # S = [0.5, 0.6, 0.4, 1.0]
+  # L = [0.550, 0.625, 0.700]
+  H = [36.23]
+  S = [0.7536]
+  L = [0.5863]
+  records = S.flat_map do |s|
+    H.flat_map do |h|
       [
         nil,
         "slight",
@@ -167,7 +175,7 @@ class BoardGalleryInfo
           [1.0, 200, 100],      # 本物。模様の数が多い・模様ほぼなし縦に延す。縦に拡大するため綺麗だけどややボケ
           [0.15, 50, 10],       # ベニア板。模様の数が少ない・いい感じに縦線を作る。拡大しないため繊維が粗い
         ].flat_map do |ring, stretch, scale|
-          [0.550, 0.625, 0.700].flat_map do |l|
+            L.flat_map do |l|
             [50].flat_map do |cloud_blur|
               { color1: [h, s, l], mode: mode, center_light_level: 50, ring: ring, stretch: stretch, scale: scale, cloud_blur: cloud_blur,  }
             end
@@ -220,7 +228,7 @@ end
 
 # class PieceGalleryInfo
 #   include MemoryRecord
-# 
+#
 #   records = [0.5].flat_map do |s|
 #     [43].flat_map do |h|
 #       [
@@ -244,12 +252,12 @@ end
 #       end
 #     end
 #   end
-# 
+#
 #   # p records.count
 #   # exit
 #   # pp records.take(4)
 #   # exit
-# 
+#
 #   # records = [{ color1: [40, 0.5, 0.550], mode: nil, center_light_level: 50, ring: 0.15, stretch: 50,  cloud_blur: 50 }]
 #   # records = [{ color1: [40, 0.5, 0.550], mode: nil, center_light_level: 50, ring: 1.0, stretch: 200,  cloud_blur: 50 }]
 #   # records = [
@@ -257,18 +265,18 @@ end
 #   #   { color1: [34, 0.5, 0.560], mode: nil, center_light_level: 50, ring: 1.0, stretch: 200, cloud_blur: 50 },
 #   #   { color1: [34, 0.5, 0.550], mode: nil, center_light_level: 50, ring: 1.0, stretch: 200, cloud_blur: 50 },
 #   # ]
-# 
+#
 #   memory_record records
-# 
+#
 #   def file_path
 #     "../../shogi-extend/nuxt_side/static/material/piece/#{code.next}.png"
 #   end
-# 
+#
 #   def color2
 #     h, s, l = color1
 #     [h, s, l + 0.1]
 #   end
-# 
+#
 #   def to_params
 #     {
 #       :width      => 128*4,
@@ -429,7 +437,8 @@ end
 ENV["SILENT"] = "true"
 generator = Generator.new
 # generator.run(BackgroundInfo)
-generator.run(BoardInfo)
+# generator.run(BoardInfo)
 # generator.run(PieceInfo)
-# generator.run(BoardGalleryInfo)
+generator.run(BoardGalleryInfo)
 # generator.run(PieceGalleryInfo)
+
